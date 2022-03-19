@@ -29,6 +29,7 @@ function App() {
               <Route path='/' element={<Layout/>}>
                 <Route index element={<HomePage/>} />
                 <Route path='/playlist/:id' element={<PlaylistPage />} />
+                <Route path='/album/:id' element={<PlaylistPage />} />
                 <Route path='/genre/:id' element={<GenrePage />} />
                 <Route path='/user/:id' element={<UserPage />} />
                 <Route path='/search' element={<SearchPage />} />
