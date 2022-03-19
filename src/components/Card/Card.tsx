@@ -1,14 +1,18 @@
+import { useNavigate } from "react-router-dom"
 
 interface IProps {
-    url: string,
+    img: string,
     title: string,
-    description: string
+    description: string,
+    url: string
 }
 
-export const Card: React.FC<IProps> = ({ url, title, description }) => {
+export const Card: React.FC<IProps> = ({ img, title, description, url }) => {
+    const navigate = useNavigate();
+
     return (
-        <div className="card">
-            <img className="card_image" src={url} alt={title} />
+        <div className="card" onClick={() => navigate(url)}>
+            <img className="card_image" src={img} alt={title} />
             <div className="card_info">
                 <span className="card_info-title ellipsis">{title}</span>
                 {

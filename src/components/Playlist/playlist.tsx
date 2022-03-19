@@ -28,9 +28,7 @@ export const Playlist: React.FC<IProps> = ({ items, title, link, unfold = true }
             <div className="playlist__content">
                 {
                     playlist && playlist.map((item: any) => (
-                        <Link to={item.uri.split(':').slice(1, 2) + '/' + item.id} key={item.id}>
-                            <Card url={item.images[0].url} title={item.name} description={item.description} />
-                        </Link>
+                        <Card img={item.images[0].url} title={item.name} description={item.description} url={item.uri.split(':').slice(1, 2) + '/' + item.id} key={item.id} />
                     ))
                 }
             </div>
