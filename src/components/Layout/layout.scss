@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+}
+
+.main {
+    background: linear-gradient(#212121, #121212);
+    width: 100%;
+    margin-left: var(--sidebar-min-width);
+    min-height: 100vh;
+}
+
+.content {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px
+}

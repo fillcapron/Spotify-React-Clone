@@ -1,0 +1,52 @@
+.nav-bar {
+  background: #000;
+  min-width: var(--sidebar-min-width);
+  z-index: 3;
+  min-height: 100vh;
+  position: fixed;
+
+  & .sidebar {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+
+    &__logo {
+      margin-bottom: 18px;
+      padding: 0 24px;
+    }
+
+    & .banner {
+      height: 40px;
+      max-width: 131px;
+      width: 100%;
+    }
+
+    & .playlist {
+      margin-top: 24px;
+    }
+
+    & li {
+      padding: 0 8px;
+    }
+
+    & .nav-link a {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+      height: 40px;
+      padding: 0 16px;
+      color: inherit;
+      &:hover {
+        color: white;
+      }
+      &:acitve {
+        color: white;
+      }
+    }
+  }
+}
+
+.active {
+  color: white !important;
+}

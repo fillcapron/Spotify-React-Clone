@@ -1,0 +1,21 @@
+
+.user-profile {
+    min-height: 340px;
+    max-height: 500px;
+    background: linear-gradient(#555555, #2a2a2a);
+    display: flex;
+    color: white;
+
+    & .image {
+        width: 232px;
+        height: 232px;
+        align-self: flex-end;
+        margin-right: 24px;
+    }
+
+    & .name {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-end;
+    }
+}

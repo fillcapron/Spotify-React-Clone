@@ -1,0 +1,127 @@
+.topbar {
+  height: 64px;
+  min-width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--sidebar-min-width);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+
+    & .buttons {
+      display: flex;
+      &-arrow {
+        display: inline-flex;
+        align-items: center;
+        //background-color: #000000b3;
+        background: black;
+        border: none;
+        border-radius: 50%;
+        color: white;
+        height: 32px;
+        justify-content: center;
+        width: 32px;
+        //opacity: 0.6;
+        margin-right: 16px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.button-profile {
+  height: 32px;
+  margin: 2px;
+  padding: 2px;
+  background-color: #000000b3;
+  color: white;
+  border-radius: 23px;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  &:hover {
+    background-color: #282828;
+  }
+
+  & figure {
+    height: 28px;
+    width: 28px;
+    background-color: #535353;
+    border-radius: 50%;
+  }
+
+  & .user-name {
+    max-width: 110px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.button-login {
+  background: white;
+  color: #181818;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px  34px;
+  text-transform: uppercase;
+  letter-spacing: 1.75px;
+  line-height: 18px;
+  transition: all 33ms cubic-bezier(.3,0,0,1);
+  will-change: transform;
+  
+  &:hover {
+    transform: scale(1.06);
+  }
+}
+
+.submenu {
+  z-index: 9999;
+  position: absolute;
+  margin: 0;
+  inset: 0px 0px auto auto;
+  transform: translate(-33px, 56px);
+
+  & .menu {
+    min-width: 196px;
+    
+
+    ul {
+      background-color: #282828;
+      border-radius: 4px;
+      box-shadow: 0 16px 24px #0000004d, 0 6px 8px #00000033;
+      max-width: 350px;
+      max-height: calc(100vh - 24px);
+      padding: 4px;
+    }
+
+    & button {
+        background: transparent;
+        border: 0;
+        width: 100%;
+        text-align: start;
+        padding: 12px;
+        color: #ffffffe6;
+        font-size: 0.875rem;
+        &:hover {
+            background: #ffffff1a;
+        }
+        & a {
+          color: inherit;
+        }
+    }
+  }
+}
