@@ -6,7 +6,6 @@ import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { useEffect } from 'react';
 import { fetchPlaylistUser } from '../../store/reducers/actionCreator';
-import { Link } from 'react-router-dom';
 
 export const Sidebar: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -41,7 +40,7 @@ export const Sidebar: React.FC = () => {
                 <ul className='nav-link'>
                     {
                         playlist && playlist.items.map(item => (
-                            <SidebarLink link={'/playlist/'+  item.id} name={item.name}/>
+                            <SidebarLink link={'/playlist/'+  item.id} name={item.name} key={item.id}/>
                         ))
                     }
                 </ul>

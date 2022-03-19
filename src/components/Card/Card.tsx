@@ -8,13 +8,15 @@ interface IProps {
 export const Card: React.FC<IProps> = ({ url, title, description }) => {
     return (
         <div className="card">
-            <img className="card_image" src={url} alt={title}/>
-            <span className="card_title ellipsis">{title}</span>
-            {
-                description ?
-                <div className="card_description ellipsis">{description}</div>
-                : ''
-            }
+            <img className="card_image" src={url} alt={title} />
+            <div className="card_info">
+                <span className="card_info-title ellipsis">{title}</span>
+                {
+                    description ?
+                        <div className="card_info-description ellipsis">{description.slice(0, 40)}</div>
+                        : ''
+                }
+            </div>
         </div >
     )
 }
