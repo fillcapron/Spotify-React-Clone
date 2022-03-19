@@ -37,11 +37,14 @@ export const Sidebar: React.FC = () => {
                     <SidebarLink name='Моя медиатека' Icon={LibraryMusicIcon}  link='/collection'/>
                 </ul>
                 <div className='playlist'>
+                <hr className='border'/>
+                <ul className='nav-link'>
                     {
                         playlist && playlist.items.map(item => (
-                            <Link to={'/playlist/'+  item.id} key={item.id}>{item.name}</Link>
+                            <SidebarLink link={'/playlist/'+  item.id} name={item.name}/>
                         ))
                     }
+                </ul>
                 </div>
             </div>
         </nav>

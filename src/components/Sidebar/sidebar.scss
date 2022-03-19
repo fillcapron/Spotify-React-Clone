@@ -23,6 +23,7 @@
 
     & .playlist {
       margin-top: 24px;
+      font-weight: 100;
     }
 
     & li {
@@ -43,6 +44,13 @@
       &:acitve {
         color: white;
       }
+    }
+
+    & .border {
+      background-color: #282828;
+      border: none;
+      height: 1px;
+      margin: 8px 24px 0 24px;
     }
   }
 }
