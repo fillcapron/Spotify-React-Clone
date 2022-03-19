@@ -13,6 +13,16 @@
     &__logo {
       margin-bottom: 18px;
       padding: 0 24px;
+
+      & a {
+        color: #fff;
+      }
+
+      &-svg {
+        height: 40px;
+        max-width: 131px;
+        width: 100%;
+      }
     }
 
     & .banner {

@@ -13,7 +13,7 @@ export const Card: React.FC<IProps> = ({ url, title, description }) => {
                 <span className="card_info-title ellipsis">{title}</span>
                 {
                     description ?
-                        <div className="card_info-description ellipsis">{description.slice(0, 40)}</div>
+                        <div className="card_info-description ellipsis">{description}</div>
                         : ''
                 }
             </div>
