@@ -1,21 +1,52 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IPlaylist, IPlaylistBody } from "../models/IPlaylist";
+import { IPlaylist } from "../models/IPlaylist";
 
 interface PlaylistState {
-    playlist: IPlaylistBody<IPlaylist>,
+    playlist: IPlaylist,
     isLoading: boolean,
     error: string
 }
 
 const initialState: PlaylistState = {
     playlist: {
+        collaborative: false,
+        description: '',
+        external_urls: {
+            spotify: ''
+        },
+        followers: {
+            href: null,
+            total: 0
+        },
         href: '',
-        items: [],
-        limit: 20,
-        next: null,
-        offset: 0,
-        previous: null,
-        total: 0
+        id: '',
+        images: [],
+        name: '',
+        owner: {
+            display_name: '',
+            external_urls: {
+                spotify: ''
+            },
+            followers: {
+                href: '',
+                total: 0
+            },
+            href: '',
+            id: '',
+            images: [],
+            type: '',
+            uri: ''
+        }
+        ,
+        primary_color: '',
+        public: false,
+        snapshot_id: '',
+        tracks:  {
+            href: '',
+            total: 0
+        },
+        type: '',
+        uri: ''
     },
     isLoading: false,
     error: ''
@@ -28,7 +59,7 @@ export const playlistSlice = createSlice({
         playlistFetching(state) {
             state.isLoading = true;
         },
-        playlistFetchingSuccess(state, action: PayloadAction<IPlaylistBody<IPlaylist>>) {
+        playlistFetchingSuccess(state, action: PayloadAction<IPlaylist>) {
             state.isLoading = false;
             state.error = '';
             state.playlist = action.payload;

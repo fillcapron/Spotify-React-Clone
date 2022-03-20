@@ -10,7 +10,7 @@ export const UserPage: React.FC = () => {
 
     const token = useAppSelector(token => token.spotifySlice.token);
     const { user } = useAppSelector(user => user.userSlice);
-    const { playlist } = useAppSelector(playlist => playlist.playlistSlice);
+    const { playlist } = useAppSelector(playlist => playlist.userPlaylistSlice);
 
     const isLogin = localStorage.getItem('user');
 

@@ -1,16 +1,18 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userSlice from './reducers/userSlice';
 import spotifySlice from './reducers/spotifySlice';
+import userPlaylistSlice from "./reducers/userPlaylistSlice";
+import newReleasesPlaylistSlice from "./reducers/newReleasesPlaylist";
+import featuredPlaylistSlice from "./reducers/featuredPlaylist";
 import playlistSlice from "./reducers/playlistSlice";
-import newReleasesPlaylist from "./reducers/newReleasesPlaylist";
-import featuredPlaylist from "./reducers/featuredPlaylist";
 
 const rootResucers = combineReducers({
     userSlice,
     spotifySlice,
-    playlistSlice,
-    newReleasesPlaylist,
-    featuredPlaylist
+    userPlaylistSlice,
+    newReleasesPlaylistSlice,
+    featuredPlaylistSlice,
+    playlistSlice
 });
 
 export const initStore = () => {

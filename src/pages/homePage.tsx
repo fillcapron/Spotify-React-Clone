@@ -5,8 +5,8 @@ import { fetchNewReleasesPlaylist, fetchFeaturedPlaylists } from "../store/reduc
 
 export const HomePage: React.FC = () => {
     const token = useAppSelector(token => token.spotifySlice.token.access_token);
-    const featuredPlaylist = useAppSelector(featured => featured.featuredPlaylist.response);
-    const newReleasesPlaylist = useAppSelector(newReleases => newReleases.newReleasesPlaylist.albums);
+    const featuredPlaylist = useAppSelector(featured => featured.featuredPlaylistSlice.response);
+    const newReleasesPlaylist = useAppSelector(newReleases => newReleases.newReleasesPlaylistSlice.albums);
     const dispatch = useAppDispatch();
 
     useEffect(() => {

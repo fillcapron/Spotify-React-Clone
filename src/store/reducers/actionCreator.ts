@@ -1,9 +1,10 @@
 import { AppDispatch } from "../store";
 import { featuredPlaylistFetching, featuredPlaylistFetchingError, featuredPlaylistFetchingSuccess } from "./featuredPlaylist";
 import { newReleasesPlaylistFetching, newReleasesPlaylistFetchingError, newReleasesPlaylistFetchingSuccess } from "./newReleasesPlaylist";
-import { playlistFetching, playlistFetchingError, playlistFetchingSuccess } from "./playlistSlice";
+import { userPlaylistFetching, userPlaylistFetchingError, userPlaylistFetchingSuccess } from "./userPlaylistSlice";
 import { tokenFetching, tokenFetchingSuccess, tokenFetchingError } from "./spotifySlice";
 import { userFetching, userFetchingSuccess, userFetchingError } from "./userSlice";
+import { playlistFetching, playlistFetchingError, playlistFetchingSuccess } from "./playlistSlice";
 
 export const fetchUser = (token: string, id: string, isLogin: boolean = false) => async (dispatch: AppDispatch) => {
     try {
@@ -55,9 +56,31 @@ export const loginSpotify = (clientId: string, secret: string) => async (dispatc
 
 export const fetchPlaylistUser = (token: string, id: string) => async (dispatch: AppDispatch) => {
     try {
-        dispatch(playlistFetching());
+        dispatch(userPlaylistFetching());
 
         const res = await fetch(`https://api.spotify.com/v1/users/${id}/playlists/`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        });
+        const data = await res.json();
+
+        if (data.error) {
+            dispatch(userPlaylistFetchingError(data.error));
+        }
+        dispatch(userPlaylistFetchingSuccess(data));
+    } catch (e) {
+        dispatch(userPlaylistFetchingError('Ошибка получения плейлиста'));
+    }
+}
+
+export const fetchPlaylist = (token: string, id: string | undefined) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(playlistFetching());
+
+        const res = await fetch(`https://api.spotify.com/v1/playlists/${id}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

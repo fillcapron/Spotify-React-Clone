@@ -7,11 +7,15 @@ export interface IPlaylist {
     external_urls: {
         spotify: string
     },
+    followers: {
+        href: null,
+        total: number
+    }
     href: string,
     id: string,
     images: Image[],
     name: string,
-    owner: Omit<IUser, 'followers' | 'images'>,
+    owner: Omit<IUser, 'followers' | 'images'> | IUser,
     primary_color: string | null,
     public: boolean,
     snapshot_id: string,

@@ -10,7 +10,7 @@ export const Sidebar: React.FC = () => {
     const dispatch = useAppDispatch();
     const token = useAppSelector(token => token.spotifySlice.token.access_token);
     const user = useAppSelector(user => user.userSlice.user);
-    const { playlist } = useAppSelector(playlist => playlist.playlistSlice);
+    const { playlist } = useAppSelector(playlist => playlist.userPlaylistSlice);
     
     useEffect(() => {
         if(user.id){
