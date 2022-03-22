@@ -11,6 +11,7 @@ import "./style.scss";
 import { AuthPage } from './pages/authPage';
 import { GenrePage } from './pages/genrePage';
 import { PlaylistPage } from './pages/playlistPage';
+import { AlbumPage } from './pages/albumPage';
 
 const clientId = 'f03d452f6b3647c38ab26ad5f8cc8629';
 const secret = '8848ff822526499f9d0ba968f87807b3';
@@ -29,7 +30,7 @@ function App() {
               <Route path='/' element={<Layout/>}>
                 <Route index element={<HomePage/>} />
                 <Route path='/playlist/:id' element={<PlaylistPage />} />
-                <Route path='/album/:id' element={<PlaylistPage />} />
+                <Route path='/album/:id' element={<AlbumPage />} />
                 <Route path='/genre/:id' element={<GenrePage />} />
                 <Route path='/user/:id' element={<UserPage />} />
                 <Route path='/search' element={<SearchPage />} />

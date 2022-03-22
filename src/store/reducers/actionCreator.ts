@@ -5,6 +5,7 @@ import { userPlaylistFetching, userPlaylistFetchingError, userPlaylistFetchingSu
 import { tokenFetching, tokenFetchingSuccess, tokenFetchingError } from "./spotifySlice";
 import { userFetching, userFetchingSuccess, userFetchingError } from "./userSlice";
 import { playlistFetching, playlistFetchingError, playlistFetchingSuccess } from "./playlistSlice";
+import { albumFetching, albumFetchingError, albumFetchingSuccess } from "./albumSlice";
 
 export const fetchUser = (token: string, id: string, isLogin: boolean = false) => async (dispatch: AppDispatch) => {
     try {
@@ -77,6 +78,7 @@ export const fetchPlaylistUser = (token: string, id: string) => async (dispatch:
 }
 
 export const fetchPlaylist = (token: string, id: string | undefined) => async (dispatch: AppDispatch) => {
+    
     try {
         dispatch(playlistFetching());
 
@@ -95,6 +97,29 @@ export const fetchPlaylist = (token: string, id: string | undefined) => async (d
         dispatch(playlistFetchingSuccess(data));
     } catch (e) {
         dispatch(playlistFetchingError('Ошибка получения плейлиста'));
+    }
+}
+
+export const fetchAlbum = (token: string, id: string | undefined) => async (dispatch: AppDispatch) => {
+    
+    try {
+        dispatch(albumFetching());
+
+        const res = await fetch(`https://api.spotify.com/v1/albums/${id}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        });
+        const data = await res.json();
+
+        if (data.error) {
+            dispatch(albumFetchingError(data.error));
+        }
+        dispatch(albumFetchingSuccess(data));
+    } catch (e) {
+        dispatch(albumFetchingError('Ошибка получения плейлиста'));
     }
 }
 

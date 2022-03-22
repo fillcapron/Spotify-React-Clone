@@ -5,6 +5,7 @@ import userPlaylistSlice from "./reducers/userPlaylistSlice";
 import newReleasesPlaylistSlice from "./reducers/newReleasesPlaylist";
 import featuredPlaylistSlice from "./reducers/featuredPlaylist";
 import playlistSlice from "./reducers/playlistSlice";
+import albumSlice from "./reducers/albumSlice";
 
 const rootResucers = combineReducers({
     userSlice,
@@ -12,7 +13,8 @@ const rootResucers = combineReducers({
     userPlaylistSlice,
     newReleasesPlaylistSlice,
     featuredPlaylistSlice,
-    playlistSlice
+    playlistSlice,
+    albumSlice
 });
 
 export const initStore = () => {

@@ -25,7 +25,7 @@ export interface IPlaylist {
 }
 export interface IAlbum {
     album_type: string,
-    artists: [],
+    artists: IArtist[],
     available_markets: [],
     external_urls: {
         spotify: string
@@ -56,4 +56,22 @@ export interface INewReleases {
 export interface IFeaturedPlaylist {
     message: string,
     playlists: IPlaylistBody<IPlaylist>
+}
+
+interface IArtist {
+    external_urls: {
+        spotify: string
+    },
+    followers: {
+        href: null,
+        total: number
+    },
+    genre: string[],
+    href: string,
+    id: string,
+    images: Image[],
+    name: string,
+    popularity: number,
+    type: string,
+    uri: string
 }
