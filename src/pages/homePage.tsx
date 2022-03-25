@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Playlist } from "../components/Playlist/playlist";
+import { Playlist } from "../components/Playlists/playlists";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchNewReleasesPlaylist, fetchFeaturedPlaylists } from "../store/reducers/actionCreator";
 

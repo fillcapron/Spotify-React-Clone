@@ -41,8 +41,13 @@ const initialState: PlaylistState = {
         primary_color: '',
         public: false,
         snapshot_id: '',
-        tracks:  {
+        tracks: {
             href: '',
+            items: [],
+            limit: 0,
+            next: null,
+            offset: 0,
+            previous: null,
             total: 0
         },
         type: '',

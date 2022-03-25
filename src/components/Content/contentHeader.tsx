@@ -10,13 +10,13 @@ interface IProps {
     totalTracks: number
 }
 
-export const PlaylistHeader: React.FC<IProps> = ({ img, type, name, description, artists, followers, totalTracks, date }) => {
+export const HeaderContent: React.FC<IProps> = ({ img, type, name, description, artists, followers, totalTracks, date }) => {
     return (
-        <div className="playlistPage_header spacing">
-            <div className="playlistPage_header-image">
+        <div className="content-header spacing">
+            <div className="content-header-image">
                 <img src={img} className="img" alt={name} />
             </div>
-            <div className="playlistPage_header-info">
+            <div className="content-header-info">
                 <h2 className="type">{type === 'playlist' ? 'Плейлист' : 'Альбом'}</h2>
                 <span><h1 className="name">{name}</h1></span>
                 <h2 className="description">{description}</h2>

@@ -1,0 +1,32 @@
+.content-buttons {
+    display: flex;
+    padding: 24px 32px;
+
+    &__button {
+        margin-right: 32px;
+        border-radius: 50px;
+        border: none;
+        text-align: center;
+        background-color: transparent;
+        position: relative;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &-play {
+            background-color: #1ed760;
+            color: #000;
+            font-size: inherit;
+            border-radius: 50px;
+            block-size: 56px;
+            inline-size: 56px;
+            
+            & .svg {
+                position: absolute;
+                top: 14px;
+                left: 14px;
+            }
+        }
+    }
+}

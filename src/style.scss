@@ -2,9 +2,11 @@
 @import './components/Layout/layout.scss';
 @import './components/Topbar/topbar.scss';
 @import './pages/user.scss';
-@import './pages/playlistPage.scss';
-@import './components/Playlist/playlist.scss';
+@import './components/Playlists/playlists.scss';
 @import './components/Card/card.scss';
+@import './components/Content/contentHeader.scss';
+@import './components/Content/contentButtons.scss';
+@import './components/Content/contentTrackList.scss';
 
 
 .ellipsis {
@@ -30,4 +32,12 @@
 
 .pt {
     padding-top: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 12px 3fr 2fr 60px;
+    grid-gap:  16px;
+    align-items: center;
+    padding: 0 16px;
 }

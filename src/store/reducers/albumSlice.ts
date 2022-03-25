@@ -19,6 +19,15 @@ const initialState: IAlbumState = {
         id: '',
         images: [],
         name: '',
+        tracks: {
+            href: '',
+            items: [],
+            limit: 0,
+            next: null,
+            offset: 0,
+            previous: null,
+            total: 0
+        },
         release_date: '',
         release_date_precision: '',
         total_tracks: 0,

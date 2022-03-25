@@ -4,7 +4,11 @@ export type Image = {
     width: number
 }
 
-export type Tracks= {
+export type Tracks = {
     href: string,
     total: number
+}
+
+export type External_urls = {
+    spotify: string
 }

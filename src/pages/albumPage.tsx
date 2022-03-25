@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom"
-import { PlaylistHeader } from "../components/Playlist/playlistHeader";
+import { ContentButtons } from "../components/Content/contentButtons";
+import { HeaderContent } from "../components/Content/contentHeader";
+import { ContentTrackList } from "../components/Content/contentTrackList";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchAlbum } from "../store/reducers/actionCreator";
 
@@ -17,10 +19,9 @@ export const AlbumPage: React.FC = () => {
         }
     }, [dispatch, token.access_token, id])
 
-
     return (
-        <div className="playlistPage">
-            <PlaylistHeader
+        <div>
+            <HeaderContent
                 img={album.images[0]?.url}
                 type={album.type}
                 name={album.name}
@@ -29,9 +30,8 @@ export const AlbumPage: React.FC = () => {
                 date={album.release_date.split('-')[0]}
                 totalTracks={album.total_tracks}
             />
-            <div className="playlistPage_tracklist">
-                AlbumPage
-            </div>
+            <ContentButtons/>
+            <ContentTrackList type={'album'} items={album.tracks.items}/>
         </div>
     )
 }

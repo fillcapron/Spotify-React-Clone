@@ -1,0 +1,64 @@
+.content-header {
+  height: 30vh;
+  max-height: 500px;
+  min-height: 340px;
+
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  padding-bottom: 24px !important;
+  &-image {
+    height: 232px;
+    min-width: 232px;
+    width: 232px;
+    margin-right: 24px;
+
+    & .img {
+      height: 100%;
+      width: 100%;
+      box-shadow: 0 4px 60px rgb(0, 0, 0 / 50%);
+    }
+  }
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+
+    & .type {
+      font-weight: 700;
+      font-size: 12px;
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    & .name {
+      font-size: 96px;
+      line-height: 96px;
+      padding: 8px;
+    }
+
+    & .description {
+      color: #ffffffb3;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    & .stats {
+      display: flex;
+      gap: 4px;
+      margin-top: 8px;
+
+      & .username {
+        font-weight: 600 !important;
+      }
+      &_followers {
+        font-weight: 100;
+        &::before {
+          content: "\2022";
+          padding-right: 4px;
+        }
+      }
+    }
+  }
+}
