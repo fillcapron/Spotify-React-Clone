@@ -17,7 +17,8 @@ export const PlaylistPage: React.FC = () => {
         if (token.access_token) {
             dispatch(fetchPlaylist(token.access_token, id));
         }
-    }, [dispatch, token.access_token, id])
+        document.title = "Spotify - " + playlist.name;
+    }, [dispatch, token.access_token, id, playlist.name])
 
     return (
         <div>

@@ -17,7 +17,8 @@ export const AlbumPage: React.FC = () => {
         if (token.access_token) {
             dispatch(fetchAlbum(token.access_token, id));
         }
-    }, [dispatch, token.access_token, id])
+        document.title = "Spotify - " + album.name;
+    }, [dispatch, token.access_token, id, album.name])
 
     return (
         <div>
