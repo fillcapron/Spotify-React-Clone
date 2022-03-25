@@ -1,5 +1,4 @@
 import { ITrack, ITracks } from '../../store/models/IPlaylist';
-import { millisToMinutesAndSeconds } from '../../utils/utils';
 import { ContentTrackRow } from './contentTrackRow';
 
 interface IProps {
