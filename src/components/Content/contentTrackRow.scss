@@ -1,0 +1,18 @@
+.content-track {
+    height: 56px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: rgb(50, 50, 50);
+    }
+    
+    & img {
+        margin-right: 16px;
+    }
+
+    & .item-info {
+        display: flex;
+        align-items: center;
+    }
+
+}

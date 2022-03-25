@@ -81,7 +81,7 @@ export const fetchPlaylist = (token: string, id: string | undefined) => async (d
     
     try {
         dispatch(playlistFetching());
-
+        //'https://api.spotify.com/v1/playlists/25lOo4OmgxKDbVgHKoFIQQ/tracks?offset=0&limit=100&additional_types=track%2Cepisode&market=from_token'
         const res = await fetch(`https://api.spotify.com/v1/playlists/${id}`, {
             method: 'GET',
             headers: {
