@@ -7,6 +7,7 @@ interface IProps {
 }
 
 export const ContentTrackList: React.FC<IProps> = ({ items, type }) => {
+
     return (
         <div className="spacing">
             <div className="content-tracklist__header">
@@ -21,39 +22,15 @@ export const ContentTrackList: React.FC<IProps> = ({ items, type }) => {
             </div>
             <div className="content-tracklist__list">
                 {
-                    items.map((item, i) => (
-                        /*
-                        <div className='content-tracklist__list-item grid' key={i}>
-                            <div>{i + 1}</div>
-                            {
-                                'track' in item ?
-                                    <div className='item-info'>
-                                        <img src={item.track?.album.images[0].url} width="40" height="40" alt={item.track?.name}/>
-                                        <div className='album'>
-                                            <span>{item.track?.name}</span>
-                                            <span>{item.track?.artists.map(artist => artist.name).join(', ')}</span>
-                                        </div>
-                                    </div>
-
-                                    : <div className='album'>
-                                        <span>{item.name}</span>
-                                        <span>{item.artists.map(artist => artist.name).join(', ')}</span>
-                                    </div>
-                            }
-                            {
-                                'track' in item && item.track && <div>{item.track?.album.name}</div>
-                            }
-                            <div>{'track' in item ? millisToMinutesAndSeconds(item.track?.duration_ms) : millisToMinutesAndSeconds(item.duration_ms)}</div>
-                        </div>
-                        */
-                       <>
+                    items.length && items.map((item, i) => (
+                       <div key={i}>
                        {
                            "track" in item ?
                            item.track &&
                            <ContentTrackRow index={i + 1} name={item.track?.name} artist={item.track?.artists.map(artist => artist.name).join(', ')} album={item.track?.album.name} img={item.track?.album.images[0].url} duration={item.track?.duration_ms}/>
-                           : <ContentTrackRow index={i + 1} name={item.name} artist={item.artists.map(artist => artist.name).join(', ')} duration={item.duration_ms}/>
+                           : <ContentTrackRow index={i === 0 ? i + 1 : i} name={item.name} artist={item.artists.map(artist => artist.name).join(', ')} duration={item.duration_ms}/>
                        }
-                       </>
+                       </div>
                     ))
                 }
             </div>

@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 import { useAppDispatch } from './hooks/redux';
-import { HomePage } from './pages/homePage';
+import HomePage from './pages/homePage';
 import { UserPage } from './pages/userPage';
 import { SearchPage } from './pages/searchPage';
 import { loginSpotify } from './store/reducers/actionCreator';

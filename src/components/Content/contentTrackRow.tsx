@@ -11,7 +11,7 @@ interface IProps {
 
 export const ContentTrackRow: React.FC<IProps> = ({ index, name, artist, duration, img = '', album = '' }) => {
     return (
-        <div className='content-track grid' key={index}>
+        <div className='content-track grid'>
             <div>{index}</div>
             {
                 img ?

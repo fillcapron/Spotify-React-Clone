@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface IProps {
@@ -7,7 +8,7 @@ interface IProps {
     url: string
 }
 
-export const Card: React.FC<IProps> = ({ img, title, description, url }) => {
+const Card: React.FC<IProps> = ({ img, title, description, url }) => {
     const navigate = useNavigate();
     
     return (
@@ -24,3 +25,5 @@ export const Card: React.FC<IProps> = ({ img, title, description, url }) => {
         </div >
     )
 }
+
+export default React.memo(Card);

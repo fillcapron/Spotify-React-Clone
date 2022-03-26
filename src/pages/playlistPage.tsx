@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom"
 import { ContentButtons } from "../components/Content/contentButtons";
@@ -7,32 +8,46 @@ import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchPlaylist } from "../store/reducers/actionCreator";
 
 export const PlaylistPage: React.FC = () => {
-    const token = useAppSelector(token => token.spotifySlice.token);
-    const playlist = useAppSelector(playlist => playlist.playlistSlice.playlist);
+    const { access_token } = useAppSelector(token => token.spotifySlice.token);
+    const { playlist, isLoading, error } = useAppSelector(playlist => playlist.playlistSlice);
     const dispatch = useAppDispatch();
 
     const { id } = useParams();
 
     useEffect(() => {
-        if (token.access_token) {
-            dispatch(fetchPlaylist(token.access_token, id));
+        if (access_token && id) {
+            dispatch(fetchPlaylist(access_token, id));
         }
+
+    }, [dispatch, access_token, id])
+
+    useEffect(() => {
         document.title = "Spotify - " + playlist.name;
-    }, [dispatch, token.access_token, id, playlist.name])
+    }, [playlist.name])
+
+    if (isLoading) return <div>Loading</div>
+    if (error) return <div>Error</div>
 
     return (
-        <div>
-            <HeaderContent
-                img={playlist.images[0]?.url}
-                type={playlist.type}
-                name={playlist.name}
-                description={playlist.description}
-                artists={playlist.owner.id}
-                followers={playlist.followers.total}
-                totalTracks={playlist.tracks.total}
-            />
-            <ContentButtons/>
-            <ContentTrackList type={'playlist'} items={playlist.tracks.items}/>
-        </div>
+        <>
+            {
+                playlist.name &&
+                    <div>
+                        <HeaderContent
+                            img={playlist.images[0]?.url}
+                            type={playlist.type}
+                            name={playlist.name}
+                            description={playlist.description}
+                            artists={playlist.owner.id}
+                            followers={playlist.followers.total}
+                            totalTracks={playlist.tracks.total}
+                        />
+                        <ContentButtons />
+                        <ContentTrackList type={'playlist'} items={playlist.tracks.items} />
+                    </div>
+            }
+        </>
     )
 }
+
+export default React.memo(PlaylistPage);

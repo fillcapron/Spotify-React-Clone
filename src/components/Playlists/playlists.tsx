@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { Card } from "../Card/Card";
+import Card from "../Card/Card";
 
 interface IProps {
     items: any[] | any,
@@ -8,7 +9,7 @@ interface IProps {
     unfold?: boolean
 }
 
-export const Playlist: React.FC<IProps> = ({ items, title, link, unfold = true }) => {
+const Playlist: React.FC<IProps> = ({ items, title, link, unfold = true }) => {
     const playlist = unfold ? items : items.slice(0, 8);
 
     return (
@@ -27,7 +28,7 @@ export const Playlist: React.FC<IProps> = ({ items, title, link, unfold = true }
             </div>
             <div className="playlist__content">
                 {
-                    playlist && playlist.map((item: any) => (
+                    playlist.length && playlist.map((item: any) => (
                         <Card img={item.images[0].url} title={item.name} description={item.description} url={item.uri.split(':').slice(1, 2) + '/' + item.id} key={item.id} />
                     ))
                 }
@@ -35,3 +36,5 @@ export const Playlist: React.FC<IProps> = ({ items, title, link, unfold = true }
         </section>
     )
 }
+
+export default Playlist;
