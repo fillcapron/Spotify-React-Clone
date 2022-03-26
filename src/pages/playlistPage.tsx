@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { ContentButtons } from "../components/Content/contentButtons";
 import { HeaderContent } from "../components/Content/contentHeader";
 import { ContentTrackList } from "../components/Content/contentTrackList";
+import Loading from "../components/Loading/loading";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchPlaylist } from "../store/reducers/actionCreator";
 
@@ -25,7 +26,7 @@ export const PlaylistPage: React.FC = () => {
         document.title = "Spotify - " + playlist.name;
     }, [playlist.name])
 
-    if (isLoading) return <div>Loading</div>
+    if (isLoading) return <Loading/>
     if (error) return <div>Error</div>
 
     return (

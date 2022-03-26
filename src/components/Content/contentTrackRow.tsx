@@ -5,13 +5,14 @@ interface IProps {
     img?: string,
     name: string,
     artist: string,
-    album?: string
-    duration: number
+    album?: string,
+    duration: number,
+    play?: boolean
 }
 
-export const ContentTrackRow: React.FC<IProps> = ({ index, name, artist, duration, img = '', album = '' }) => {
+export const ContentTrackRow: React.FC<IProps> = ({ index, name, artist, duration, img = '', album = '', play }) => {
     return (
-        <div className='content-track grid'>
+        <div className='content-track grid' style={{opacity: play ? '' : '0.4'}}>
             <div>{index}</div>
             {
                 img ?

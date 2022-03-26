@@ -27,8 +27,8 @@ export const ContentTrackList: React.FC<IProps> = ({ items, type }) => {
                        {
                            "track" in item ?
                            item.track &&
-                           <ContentTrackRow index={i + 1} name={item.track?.name} artist={item.track?.artists.map(artist => artist.name).join(', ')} album={item.track?.album.name} img={item.track?.album.images[0].url} duration={item.track?.duration_ms}/>
-                           : <ContentTrackRow index={i === 0 ? i + 1 : i} name={item.name} artist={item.artists.map(artist => artist.name).join(', ')} duration={item.duration_ms}/>
+                           <ContentTrackRow index={i === 0 ? i + 1 : i} name={item.track?.name} artist={item.track?.artists.map(artist => artist.name).join(', ')} album={item.track?.album.name} img={item.track?.album.images[0].url} duration={item.track?.duration_ms} play={item.track.preview_url ? true : false}/>
+                           : <ContentTrackRow index={i === 0 ? i + 1 : i} name={item.name} artist={item.artists.map(artist => artist.name).join(', ')} duration={item.duration_ms} play={item.preview_url ? true : false}/>
                        }
                        </div>
                     ))
